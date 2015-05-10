@@ -1,5 +1,5 @@
 {
-  "name": "Lovelace",
+  "name": "lovelace",
   "version": "0.0.1",
   "description": "An advanced, language- and framework-agnostic architecture for UI components.",
   "main": "index.js",
