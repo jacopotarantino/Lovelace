@@ -1,3 +1,9 @@
+'use strict'
+
+describe 'sanity check', ->
+  it 'should always pass', ->
+    expect( true ).toBeTruthy()
+
 describe 'Lovelace', ->
   it 'exposes Lovelace as a global module', ->
     expect( window.Lovelace ).toBeDefined()

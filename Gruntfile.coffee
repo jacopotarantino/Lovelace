@@ -17,6 +17,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'test', 'runs the test suite', ->
     grunt.task.run [
+      'coffeelint'
       'karma'
       'codeclimate'
       'validate-shrinkwrap'

@@ -8,8 +8,9 @@ track_button_clicks = ->
       return unless event.target.className.indexOf('js-track-button') > -1
 
       button = event.target
+      title = if button.dataset.title? then button.dataset.title else null
       window.analytics.track 'Clicked on button',
-        button_title: button.dataset.title? ? button.dataset.title : null
+        title: title
 
 # exports a function that initializes the module
 module.exports = ->

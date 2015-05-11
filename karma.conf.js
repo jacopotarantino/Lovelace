@@ -5,19 +5,18 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: './',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'requirejs'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'test-main.js',
-      {pattern: './**/spec.coffee', included: false}
-      {pattern: './**/*_test.coffee', included: false}
+      './**/spec.coffee',
+      './**/*_test.coffee'
     ],
 
 
@@ -29,7 +28,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.coffee': ['coffee']
+      '**/*.coffee': ['coffee', 'coverage']
     },
 
 
@@ -38,8 +37,38 @@ module.exports = function(config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: [
       'progress',
+      'dots',
       'coverage'
     ],
+
+
+    coverageReporter: {
+      type : 'html',
+      dir: 'coverage/',
+      reporters: [
+        {
+          type : 'html',
+          subdir : 'report-html'
+        },
+        {
+          type : 'lcov',
+          subdir : 'report-lcov'
+        }
+      ]
+    },
+
+
+    coffeePreprocessor: {
+      // options passed to the coffee compiler
+      options: {
+        bare: true,
+        sourceMap: true
+      },
+      // transforming the filenames
+      transformPath: function(path) {
+        return path.replace(/\.coffee$/, '.js');
+      }
+    },
 
 
     // web server port
@@ -61,11 +90,11 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };

@@ -1,6 +1,9 @@
 {
   "name": "lovelace",
   "version": "0.0.1",
+  "engines": {
+    "node": ">= 0.12.x"
+  },
   "description": "An advanced, language- and framework-agnostic architecture for UI components.",
   "main": "index.js",
   "scripts": {
@@ -29,16 +32,20 @@
     "grunt": "^0.4.5",
     "grunt-bump": "^0.3.1",
     "grunt-cli": "^0.1.13",
-    "grunt-codeclimate-reporter": "^1.0.0",
+    "grunt-codeclimate": "0.0.1-1",
+    "grunt-coffeelint": "0.0.13",
     "grunt-css-metrics": "^0.1.2",
     "grunt-karma": "^0.10.1",
     "grunt-nsp-shrinkwrap": "0.0.3",
+    "grunt-warn-friday": "^0.1.0",
     "jasmine-core": "^2.3.2",
     "jit-grunt": "^0.9.1",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.10",
     "karma-coffee-preprocessor": "^0.2.1",
+    "karma-coverage": "^0.3.1",
     "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
     "karma-requirejs": "^0.2.2",
     "load-grunt-config": "^0.17.1",
     "mustache": "^2.0.0",
