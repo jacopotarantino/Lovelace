@@ -1,17 +1,11 @@
 'use strict'
 
-mustache = require 'mustache'
-
 module.exports = (component, args, callback) ->
-  if fs?
-    # we're in server-side javascript
-    template = fs.readFileSync(
-      "../components/#{component}/template.mustache"
-      , 'utf8'
-    )
+  ui_component = require(component + '/integrations/javascript')
 
-    return mustache.render template, args
+  ui_component.render(args)
 
-  else
-    # no filesystem access. go for component server
 
+
+
+  # ui_component = require(component + '/integrations/javascript').new(args)
