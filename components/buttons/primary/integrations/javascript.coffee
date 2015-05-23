@@ -10,11 +10,13 @@ args =
   url: false
   text: ''
 
-template = fs.readFileSync '../template.mustache', 'utf8'
+template = fs.readFileSync "#{__dirname}/../template.mustache", 'utf8'
 
 module.exports =
   render: (options) ->
-    args = Object.keys(args).forEach (key, value) ->
-      args[key] = value
+    console.log options
+    if options isnt undefined
+      args = Object.keys(options).forEach (key, value) ->
+        args[key] = options[key]
 
     mustache.render template, args
