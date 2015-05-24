@@ -1,6 +1,9 @@
 'use strict'
 
-mustache = require 'mustache'
+if is_node_app
+  mustache = require 'mustache'
+else
+  mustache = window.Mustache
 
 args =
   tag: 'button'
