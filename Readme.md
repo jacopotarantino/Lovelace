@@ -144,3 +144,62 @@ grunt test
 ## License
 
 Creative Commons Attribution-ShareAlike 4.0 International License
+
+
+## Complete Real World Examples
+
+### Rails
+
+In your `Gemfile`:
+
+```ruby
+gem 'lovelace', '~> 1.0'
+```
+
+@todo In file that allows you to add view helpers:
+
+```ruby
+@todo
+```
+
+In `app/views/my_app/homepage.erb`:
+
+```html
+<p>Click the button below to sign up!
+<br>
+<%= Lovelace.component('buttons/primary', {
+  custom_classes: 'js-signup-button',
+  text: 'Create my account!'
+}) %>
+</p>
+```
+
+
+### Angular
+
+@todo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
