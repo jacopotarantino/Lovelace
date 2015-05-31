@@ -15,3 +15,5 @@ module.exports =
   styles: require './lib/client/styles'
   # Returns all available scripts concatenated
   scripts: require './lib/client/scripts'
+  # namespace for client-specific scripts
+  client: {}

@@ -24,3 +24,10 @@ module.exports = (grunt) ->
       'warn_friday'
       'cssmetrics'
     ]
+
+  grunt.registerTask 'build-client-file', 'creates final js for client', ->
+    grunt.task.run [
+      'insert mustache dependency'
+      'combine scripts'
+      'combine templates'
+    ]

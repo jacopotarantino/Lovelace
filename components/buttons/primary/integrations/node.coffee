@@ -1,9 +1,6 @@
 'use strict'
 
-if is_node_app
-  mustache = require 'mustache'
-else
-  mustache = window.Mustache
+mustache = require 'mustache'
 
 args =
   tag: 'button'
@@ -17,9 +14,8 @@ template = fs.readFileSync "#{__dirname}/../template.mustache", 'utf8'
 
 module.exports =
   render: (options) ->
-    console.log options
     if options isnt undefined
-      args = Object.keys(options).forEach (key, value) ->
+      Object.keys(options).forEach (key, value) ->
         args[key] = options[key]
 
     mustache.render template, args

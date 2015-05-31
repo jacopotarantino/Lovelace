@@ -1,7 +1,7 @@
 'use strict'
 
-module.exports = (component, args, callback) ->
-  ui_component = require(component + '/integrations/javascript')
+module.exports = (component, args) ->
+  ui_component = Lovelace.integrations(component)
 
   ui_component.render(args)
 

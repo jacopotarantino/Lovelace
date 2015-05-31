@@ -28,5 +28,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "mustache": "~2.0.0"
+  }
 }

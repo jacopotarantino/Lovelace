@@ -1,3 +1,7 @@
+# Warning
+
+This project is still under active development. Please don't use it in production code as it will probably break everything. That being said, if you'd like more information or want to collaborate on it, please reach out. I'm really excited about this one.
+
 # Lovelace
 
 An advanced, language- and framework-agnostic architecture for UI components.
@@ -71,6 +75,8 @@ This method takes no arguments and returns the compiled and concatenated JavaScr
 
 Because all of the components are written in framework-neutral fashion, integration with frameworks is done with a series of abstraction layers. Currently, ruby and node are supported. The abstractions are provided via scripts in the root of the project and integrations for particular components live in a `/integrations` folder within each component folder.
 
+It should be noted that even though the client-side javascript abstraction for Lovelace exposes the same API, it has significantly more functionality required in order to circumvent many of the difficulties of client-side code.
+
 
 ## Installation
 
@@ -110,15 +116,12 @@ And include the relevant script tag in your markup:
 <script src="bower_components/lovelace/lovelace-client.js"></script>
 ```
 
-Then use the same API to get your components. Because the browser-based code is asynchronous and relies on an API, each API call takes one additional parameter which is a callback. The callback will be invoked with the markup as the first argument when it's returned:
-
 ```javascript
-var $container = $('<div></div>div>').addClass('container');
+var $container = $('<div></div>div>').addClass('container'),
+    markup = Lovelace.component('buttons/primary', { text: 'Click me!' });
 
-Lovelace.component('buttons/primary', { text: 'Click me!' }, function(markup) {
-  $container.append( $(markup) );
-  $container.appendTo('body');
-});
+$container.append( $(markup) );
+$container.appendTo('body');
 ```
 
 
@@ -194,10 +197,20 @@ In `app/views/my_app/homepage.erb`:
 
 
 
+## client-side concat process:
 
+mustache
+main methods + namespaces
+templates escaped and wrapped in a Lovelace.client.templates[foo]= call
+integrations wrapped in a Lovelace.client.integrations[foo]= call
 
+## client-side functionality:
 
-
+dev calls Lovelace.component
+method finds integration in integrations namespace
+integration finds template in templates namespace
+integration renders template with options+defaults
+integration passes rendered template back to method
 
 
 
