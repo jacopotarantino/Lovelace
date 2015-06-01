@@ -9,7 +9,7 @@ track_button_clicks = ->
 
       button = event.target
       title = if button.dataset.title? then button.dataset.title else null
-      window.analytics.track 'Clicked on primary button',
+      window.analytics.track 'Clicked on secondary button',
         title: title
 
 # exports a function that initializes the module

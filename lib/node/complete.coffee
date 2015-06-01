@@ -1,7 +1,8 @@
 'use strict'
 
-module.exports = (component, args, callback) ->
-  ui_component = require(component + '/integrations/javascript')
+module.exports = (component, args) ->
+  style_markup = require('./style')(component)
+  html_markup = require('./component')(component, args)
+  script_markup = require('./script')(component)
 
-  ui_component.render(args)
-
+  "#{style_markup}#{html_markup}#{script_markup}"

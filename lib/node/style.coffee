@@ -1,7 +1,9 @@
 'use strict'
 
-module.exports = (component, args, callback) ->
-  ui_component = require(component + '/integrations/javascript')
+fs = require('fs')
+Sass = require('node-sass')
 
-  ui_component.render(args)
+module.exports = (component) ->
+  compiled_file = Sass.renderSync( file: "components/#{component}/styles.sass" )
+  "<style>#{compiled_file.css}</style>"
 

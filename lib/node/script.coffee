@@ -1,7 +1,11 @@
 'use strict'
 
-module.exports = (component, args, callback) ->
-  ui_component = require(component + '/integrations/javascript')
+fs = require('fs')
+CoffeeScript = require('coffee-script')
 
-  ui_component.render(args)
+module.exports = (component) ->
+  coffeescript_file = fs.readFileSync("components/#{component}/scripts.coffee", 'utf8')
+  compiled_file = CoffeeScript.compile coffeescript_file
+
+  "<script>#{compiled_file}</script>"
 
