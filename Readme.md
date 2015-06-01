@@ -182,37 +182,3 @@ In `app/views/my_app/homepage.erb`:
 
 @todo
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## client-side concat process:
-
-mustache
-main methods + namespaces
-templates escaped and wrapped in a Lovelace.client.templates[foo]= call
-integrations wrapped in a Lovelace.client.integrations[foo]= call
-
-## client-side functionality:
-
-dev calls Lovelace.component
-method finds integration in integrations namespace
-integration finds template in templates namespace
-integration renders template with options+defaults
-integration passes rendered template back to method
-
-
-
-
-
