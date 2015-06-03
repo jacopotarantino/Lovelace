@@ -1,6 +1,7 @@
 'use strict'
 
 mustache = require 'mustache'
+fs = require 'fs'
 
 args =
   tag: 'button'

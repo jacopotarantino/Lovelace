@@ -1,5 +1,7 @@
 'use strict'
 
+Lovelace = require('lovelace')
+
 describe 'Buttons::Primary', ->
   describe 'with no options passed in', ->
     it 'should render the template with all the defaults', ->
