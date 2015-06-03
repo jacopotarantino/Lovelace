@@ -1,8 +1,11 @@
 'use strict'
 
-Lovelace = require('lovelace')
+Lovelace = {}
 
 describe 'Buttons::Primary', ->
+  beforeEach ->
+    Lovelace = require '../../../../node'
+
   describe 'with no options passed in', ->
     it 'should render the template with all the defaults', ->
       component = Lovelace.component 'buttons/primary'
@@ -25,9 +28,9 @@ describe 'Buttons::Primary', ->
         href: '/foobar'
         text: 'click me'
 
-      expect( component.indexOf 'a' ).toBe 1
-      expect( component.indexOf('disabled') > 0 ).toBeTruthy()
-      expect( component.indexOf('block') > 0 ).toBeTruthy()
-      expect( component.indexOf('custom-class') > 0 ).toBeTruthy()
-      expect( component.indexOf('href="/foobar"') > 0 ).toBeTruthy()
-      expect( component.indexOf('click me') > 0 ).toBeTruthy()
+      expect( component.indexOf '<a' ).toBe 0
+      expect( component.indexOf('disabled') ).toBeTruthy()
+      expect( component.indexOf('block') ).toBeTruthy()
+      expect( component.indexOf('custom-class') ).toBeTruthy()
+      expect( component.indexOf('href="/foobar"') ).toBeTruthy()
+      expect( component.indexOf('click me') ).toBeTruthy()

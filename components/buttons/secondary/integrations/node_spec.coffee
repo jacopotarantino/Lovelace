@@ -1,10 +1,15 @@
 'use strict'
 
+Lovelace = {}
+
 describe 'Buttons::Primary', ->
+
+  beforeEach ->
+    Lovelace = require '../../../../node'
+
   describe 'with no options passed in', ->
     it 'should render the template with all the defaults', ->
-      component = Lovelace.component 'buttons/primary'
-
+      component = Lovelace.component 'buttons/secondary'
       expect( component.indexOf 'button' ).toBe 1
       expect( component.indexOf 'disabled' ).toBe -1
       expect( component.indexOf 'block' ).toBe -1
@@ -15,7 +20,7 @@ describe 'Buttons::Primary', ->
 
   describe 'with an options hash passed in', ->
     it 'should render the template with all of the new options', ->
-      component = Lovelace.component 'buttons/primary',
+      component = Lovelace.component 'buttons/secondary',
         tag: 'a'
         disabled: true
         block: true
@@ -23,9 +28,9 @@ describe 'Buttons::Primary', ->
         href: '/foobar'
         text: 'click me'
 
-      expect( component.indexOf 'a' ).toBe 1
-      expect( component.indexOf('disabled') > 0 ).toBeTruthy()
+      expect( component.indexOf '<a' ).toBe 0
+      expect( component.indexOf('disabled') ).toBeTruthy()
       expect( component.indexOf('block') > 0 ).toBeTruthy()
-      expect( component.indexOf('custom-class') > 0 ).toBeTruthy()
-      expect( component.indexOf('href="/foobar"') > 0 ).toBeTruthy()
-      expect( component.indexOf('click me') > 0 ).toBeTruthy()
+      expect( component.indexOf('custom-class') ).toBeTruthy()
+      expect( component.indexOf('href="/foobar"') ).toBeTruthy()
+      expect( component.indexOf('click me') ).toBeTruthy()

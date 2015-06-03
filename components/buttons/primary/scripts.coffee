@@ -1,7 +1,9 @@
 'use strict'
 
+window.PrimaryButtonAnalytics = {}
+
 # adds analytics to all tagged buttons on the page
-track_button_clicks = ->
+window.PrimaryButtonAnalytics.track_button_clicks = ->
   document
     .getElementsByTagName('body')[0]
     .addEventListener 'click', (event) ->
@@ -13,7 +15,7 @@ track_button_clicks = ->
         title: title
 
 # exports a function that initializes the module
-module.exports = ->
+window.PrimaryButtonAnalytics.init = ->
   return unless window?.analytics?
 
-  track_button_clicks()
+  window.PrimaryButtonAnalytics.track_button_clicks()
