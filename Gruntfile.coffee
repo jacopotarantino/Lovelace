@@ -28,9 +28,7 @@ module.exports = (grunt) ->
       'jasmine_node'
       'karma'
       'codeclimate'
-      # @todo this fails because of semver dependency.
-      # re-enable when updated.
-      # 'validate-shrinkwrap'
+      'validate-shrinkwrap'
       'warn_friday'
       'cssmetrics'
     ]
