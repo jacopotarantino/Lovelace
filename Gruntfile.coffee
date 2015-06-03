@@ -23,19 +23,18 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'test', 'runs the test suite', ->
     grunt.task.run [
-      'markdown'
-      'coffeelint'
-      'jasmine_node'
-      'karma'
+      'build_client_files'
+      'concurrent:test'
       'codeclimate'
-      'validate-shrinkwrap'
-      'warn_friday'
       'cssmetrics'
     ]
 
-  grunt.registerTask 'build-client-file', 'creates final js for client', ->
+  grunt.registerTask 'build_client_files', 'creates final js for client', ->
     grunt.task.run [
-      'insert mustache dependency'
-      'combine scripts'
-      'combine templates'
+      'clean'
+      'sass:all_components'
+      'concat:styles_file'
+      # 'insert mustache dependency'
+      # 'combine scripts'
+      # 'combine templates'
     ]
