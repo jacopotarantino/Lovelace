@@ -38,6 +38,7 @@
     "grunt-css-metrics": "^0.1.2",
     "grunt-jasmine-node": "^0.3.1",
     "grunt-karma": "^0.10.1",
+    "grunt-markdown": "^0.7.0",
     "grunt-nsp-shrinkwrap": "0.0.3",
     "grunt-warn-friday": "^0.1.0",
     "jasmine-core": "^2.3.2",

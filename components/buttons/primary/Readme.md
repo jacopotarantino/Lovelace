@@ -11,6 +11,7 @@ Lovelace.component('buttons/primary', {
   url: '',
   text: ''
 })
+```
 
 ## Optional Classes
 
