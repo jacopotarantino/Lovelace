@@ -20,12 +20,17 @@ Momentarily, heavily a work in progress.
 ## Table of Contents
 
 * [Description](#description)
+  * [Components](#components)
 * [API Definition](#api)
+  * [Abstractions](#abstractions)
 * [Installation](#installation)
+  * [Ruby/Rails](#in-rubyrails)
+  * [Node](#in-node)
+  * [Client-side](#in-the-browser)
 * [Development](#development)
 * [Testing](#tests)
 * [License](#license)
-* [Examples](#examples)
+* [Examples](#complete-real-world-examples)
 
 
 <span id='description'></span>
