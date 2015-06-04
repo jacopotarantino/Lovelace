@@ -17,6 +17,18 @@ Momentarily, heavily a work in progress.
 [![Bower version](https://badge.fury.io/bo/lovelace.svg)](http://badge.fury.io/bo/lovelace)
 
 
+## Table of Contents
+
+* [Description](#description)
+* [API Definition](#api)
+* [Installation](#installation)
+* [Development](#development)
+* [Testing](#tests)
+* [License](#license)
+* [Examples](#examples)
+
+
+<span id='description'></span>
 ## Description
 
 Lovelace provides a framework for developing UI components in a way that is both sane and highly scalable. It focuses on developer happiness by providing a neat organizational scructure with all files relevant to a single component in a single folder. Components are written in terse, compiled languages so that we can code as little as possible. Lovelace is also designed to be consumed by large infrastructures that may involve many different languages and frameworks and complicated deployment processes.
@@ -35,6 +47,7 @@ All components live in the `/components` folder. They each consist of a category
 In addition, the component folder should contain an `integrations` folder that contains scripts for the abstraction layer that are named after the language/framework that they're integrating with.
 
 
+<span id='api'></span>
 ## API
 
 ### `#component(component_name, options)`
@@ -78,6 +91,7 @@ Because all of the components are written in framework-neutral fashion, integrat
 It should be noted that even though the client-side javascript abstraction for Lovelace exposes the same API, it has significantly more functionality required in order to circumvent many of the difficulties of client-side code.
 
 
+<span id='installation'></span>
 ## Installation
 
 Installation process differs based on the application consuming Lovelace and its underlying tech stack.
@@ -125,6 +139,7 @@ $container.appendTo('body');
 ```
 
 
+<span id='development'></span>
 ## Development
 
 You'll need:
@@ -135,6 +150,7 @@ You'll need:
 Then just run `npm install` and you should have all of the required dependencies wired up.
 
 
+<span id='tests'></span>
 ## Tests
 
 The standard test suite runs linters, unit tests, sends test coverage reporting to codeclimate, checks the shrinkwrap file for vulnerable dependencies, makes sure you're not deploying on friday and checks out the CSS metrics. Run the tests with:
@@ -144,11 +160,30 @@ grunt test
 ```
 
 
+<span id='license'></span>
 ## License
 
-Creative Commons Attribution-ShareAlike 4.0 International License
+[Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
+
+### You are free to:
+
+* Share — copy and redistribute the material in any medium or format
+* Adapt — remix, transform, and build upon the material for any purpose, even commercially.
+
+You're allowed these freedoms as long as you follow the below license terms.
+
+### But you must follow these rules:
+
+* Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+* ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+* No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+### Notices:
+
+No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
 
 
+<span id='examples'></span>
 ## Complete Real World Examples
 
 ### Rails
