@@ -8,4 +8,5 @@ module.exports =
     'karma'
     'validate-shrinkwrap'
     'warn_friday'
+    # @todo test ruby integrations
   ]

@@ -7,7 +7,8 @@
   "description": "An advanced, language- and framework-agnostic architecture for UI components.",
   "main": "index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "bundle"
   },
   "repository": {
     "type": "git",
