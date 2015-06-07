@@ -1,1 +1,1 @@
---pattern './**/*_spec.rb'
+--backtrace --pattern './**/*_spec.rb'

@@ -1,7 +1,9 @@
 require 'capybara/rspec/matchers'
+require_relative 'ruby'
+
+puts Lovelace.class
 
 describe 'Lovelace::Buttons::Primary' do
-  require './ruby'
 
   context 'with no arguments' do
     let(:page) {

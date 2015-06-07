@@ -1,29 +1,34 @@
 module Lovelace
-    module Buttons
+  module Buttons
+    require 'mustache'
 
-      class Primary
-        self.template_file = self.ui_component_path('buttons/primary')
+    class Primary < Mustache
+      self.template_path = "#{ File.dirname(__FILE__) }/../template.mustache"
 
-        def tag
-          "#{@parameters[:tag] || 'button'}"
-        end
-
-        def disabled
-          @parameters[:disabled] || false
-        end
-
-        def block
-          @parameters[:block] || false
-        end
-
-        def url
-          "#{@parameters[:url]}"
-        end
-
-        def text
-          "#{@parameters[:text]}"
-        end
+      def initialize(parameters = {})
+        @parameters = parameters
       end
 
+      def tag
+        "#{@parameters[:tag] || 'button'}"
+      end
+
+      def disabled
+        @parameters[:disabled] || false
+      end
+
+      def block
+        @parameters[:block] || false
+      end
+
+      def url
+        "#{@parameters[:url]}"
+      end
+
+      def text
+        "#{@parameters[:text]}"
+      end
     end
+
+  end
 end
