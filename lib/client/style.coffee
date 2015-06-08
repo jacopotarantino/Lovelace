@@ -1,7 +1,6 @@
 'use strict'
 
-module.exports = (component, args, callback) ->
-  ui_component = require(component + '/integrations/javascript')
+window.Lovelace.style = (component) ->
+  style = window.Lovelace.client.styles[component]
 
-  ui_component.render(args)
-
+  return "<style>#{style}</style>"

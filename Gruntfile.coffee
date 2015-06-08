@@ -49,8 +49,25 @@ module.exports = (grunt) ->
     grunt.task.run [
       'clean'
       'sass:all_components'
-      'concat:styles_file'
-      # @todo 'insert mustache dependency'
-      # @todo 'combine scripts'
-      # @todo 'combine templates'
+      'coffee:compile_for_client'
+      'build_client_templates'
+      'build_client_styles'
+      'build_client_scripts'
+      'build_client_mustache'
+      'build_client_api'
+      'concat:all_client_files'
     ]
+
+  grunt.registerTask 'build_client_templates', 'create js for templates', ->
+    full_file = ';(function() { window.Lovelace || window.Lovelace = {}; window.Lovelace.client || window.Lovelace.client = {}; window.Lovelace.client.templates || window.Lovelace.client.templates = {};'
+
+    file_paths = grunt.file.expand [ 'components/**/template.mustache' ]
+
+    file_paths.forEach (item, index, array) ->
+      file = grunt.file.read item, 'utf8'
+      component_name = /components\/(.+?)\/template.mustache/.exec( item )[1]
+      full_file += "window.Lovelace.client.templates['#{ component_name }'] = '#{ file }';"
+
+    full_file += '})();'
+
+    grunt.file.write 'dist/client_templates.js', full_file

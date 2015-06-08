@@ -1,7 +1,8 @@
 'use strict'
 
-module.exports = (component, args, callback) ->
-  ui_component = require(component + '/integrations/javascript')
+window.Lovelace.scripts = ->
+  all_scripts = ''
+  Object.keys(window.Lovelace.client.scripts).forEach (item, index, array) ->
+    all_scripts += window.Lovelace.script item
 
-  ui_component.render(args)
-
+  all_scripts

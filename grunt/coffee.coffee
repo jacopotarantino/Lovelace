@@ -5,8 +5,10 @@ module.exports =
     options:
       join: false
       sourceMap: true
-    files:
-      'build/client.js': [
-        'lib/client/*.coffee'
-        'components/**/scripts.coffee'
-      ]
+    files: [{
+      expand: true
+      flatten: false
+      src: 'components/**/scripts.coffee'
+      dest: 'dist'
+      ext: '.js'
+    }]

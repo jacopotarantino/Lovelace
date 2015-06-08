@@ -1,7 +1,8 @@
 'use strict'
 
-module.exports = (component, args) ->
-  ui_component = Lovelace.integrations(component)
+window.Lovelace.complete = (component, options) ->
+  style = window.Lovelace.style(component)
+  template = window.Lovelace.component(component, options)
+  script = window.Lovelace.script(component)
 
-  ui_component.render(args)
-
+  return "#{ style }#{ template }#{ script }"
