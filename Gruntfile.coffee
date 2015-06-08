@@ -53,7 +53,6 @@ module.exports = (grunt) ->
       'build_client_templates'
       'build_client_styles'
       'build_client_scripts'
-      'build_client_mustache'
       'build_client_api'
       'concat:all_client_files'
     ]
@@ -64,10 +63,25 @@ module.exports = (grunt) ->
     file_paths = grunt.file.expand [ 'components/**/template.mustache' ]
 
     file_paths.forEach (item, index, array) ->
-      file = grunt.file.read item, 'utf8'
+      file = grunt.file.read(item, 'utf8').replace(/\n|\r/g, '')
       component_name = /components\/(.+?)\/template.mustache/.exec( item )[1]
       full_file += "window.Lovelace.client.templates['#{ component_name }'] = '#{ file }';"
 
     full_file += '})();'
 
     grunt.file.write 'dist/client_templates.js', full_file
+
+
+  grunt.registerTask 'build_client_styles', 'create js for scripts', ->
+    full_file = ''
+
+    file_paths = grunt.file.expand [ 'dist/components/**/styles.css' ]
+
+    file_paths.forEach (item, index, array) ->
+      file = grunt.file.read(item, 'utf8').replace(/\n|\r/g, '')
+      component_name = /components\/(.+?)\/styles.css/.exec( item )[1]
+      full_file += "window.Lovelace.client.styles['#{ component_name }'] = '#{ file }';"
+
+    full_file += '})();'
+
+    grunt.file.write 'dist/client_styles.js', full_file
