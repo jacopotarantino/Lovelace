@@ -5,6 +5,12 @@ module.exports =
     src: [ 'dist/**/styles.css' ]
     dest: 'dist/styles.css'
 
+  client_api:
+    src: [
+      'dist/lib/client/**/*.js'
+    ]
+    dest: 'dist/client_api.js'
+
   all_client_files:
     src: [
       'bower_components/mustache/mustache.js'

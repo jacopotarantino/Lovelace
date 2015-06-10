@@ -49,7 +49,7 @@ module.exports = (grunt) ->
     grunt.task.run [
       'clean'
       'sass:all_components'
-      'coffee:compile_for_client'
+      'coffee:compile_scripts_for_client'
       'build_client_templates'
       'build_client_styles'
       'build_client_scripts'
@@ -58,7 +58,12 @@ module.exports = (grunt) ->
     ]
 
   grunt.registerTask 'build_client_templates', 'create js for templates', ->
-    full_file = ';(function() { window.Lovelace || window.Lovelace = {}; window.Lovelace.client || window.Lovelace.client = {}; window.Lovelace.client.templates || window.Lovelace.client.templates = {};'
+    full_file = [
+      ';(function() {',
+      'window.Lovelace = window.Lovelace || {};',
+      'window.Lovelace.client = window.Lovelace.client || {};',
+      'window.Lovelace.client.templates = window.Lovelace.client.templates || {};'
+    ].join('')
 
     file_paths = grunt.file.expand [ 'components/**/template.mustache' ]
 
@@ -73,7 +78,9 @@ module.exports = (grunt) ->
 
 
   grunt.registerTask 'build_client_styles', 'create js for styles', ->
-    full_file = ''
+    full_file = [
+      'window.Lovelace.client.styles = window.Lovelace.client.styles || {};'
+    ].join('')
 
     file_paths = grunt.file.expand [ 'dist/components/**/styles.css' ]
 
@@ -82,13 +89,13 @@ module.exports = (grunt) ->
       component_name = /components\/(.+?)\/styles.css/.exec( item )[1]
       full_file += "window.Lovelace.client.styles['#{ component_name }'] = '#{ file }';"
 
-    full_file += '})();'
-
     grunt.file.write 'dist/client_styles.js', full_file
 
 
   grunt.registerTask 'build_client_scripts', 'create js for scripts', ->
-    full_file = ''
+    full_file = [
+      'window.Lovelace.client.scripts = window.Lovelace.client.scripts || {};'
+    ].join('')
 
     file_paths = grunt.file.expand [ 'dist/components/**/scripts.js' ]
 
@@ -102,3 +109,9 @@ module.exports = (grunt) ->
 
 
     grunt.file.write 'dist/client_scripts.js', full_file
+
+  grunt.registerTask 'build_client_api', 'create api for client scripts', ->
+    grunt.task.run [
+      'coffee:compile_api_for_client'
+      'concat:client_api'
+    ]
