@@ -72,7 +72,7 @@ module.exports = (grunt) ->
     grunt.file.write 'dist/client_templates.js', full_file
 
 
-  grunt.registerTask 'build_client_styles', 'create js for scripts', ->
+  grunt.registerTask 'build_client_styles', 'create js for styles', ->
     full_file = ''
 
     file_paths = grunt.file.expand [ 'dist/components/**/styles.css' ]
@@ -85,3 +85,20 @@ module.exports = (grunt) ->
     full_file += '})();'
 
     grunt.file.write 'dist/client_styles.js', full_file
+
+
+  grunt.registerTask 'build_client_scripts', 'create js for scripts', ->
+    full_file = ''
+
+    file_paths = grunt.file.expand [ 'dist/components/**/scripts.js' ]
+
+    file_paths.forEach (item, index, array) ->
+      file = grunt.file.read(item, 'utf8')
+        .replace(/\n|\r/g, '')
+        .replace(/\/\/.*$/g, '')
+        .replace(/"/g, '\\"')
+      component_name = /components\/(.+?)\/scripts.js/.exec( item )[1]
+      full_file += "window.Lovelace.client.scripts['#{ component_name }'] = \"#{ file }\";"
+
+
+    grunt.file.write 'dist/client_scripts.js', full_file
