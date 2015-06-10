@@ -62,7 +62,8 @@ module.exports = (grunt) ->
       ';(function() {',
       'window.Lovelace = window.Lovelace || {};',
       'window.Lovelace.client = window.Lovelace.client || {};',
-      'window.Lovelace.client.templates = window.Lovelace.client.templates || {};'
+      'window.Lovelace.client.templates = ',
+      'window.Lovelace.client.templates || {};'
     ].join('')
 
     file_paths = grunt.file.expand [ 'components/**/template.mustache' ]
@@ -70,7 +71,8 @@ module.exports = (grunt) ->
     file_paths.forEach (item, index, array) ->
       file = grunt.file.read(item, 'utf8').replace(/\n|\r/g, '')
       component_name = /components\/(.+?)\/template.mustache/.exec( item )[1]
-      full_file += "window.Lovelace.client.templates['#{ component_name }'] = '#{ file }';"
+      root_object = 'window.Lovelace.client.templates'
+      full_file += "#{ root_object }['#{ component_name }'] = '#{ file }';"
 
     full_file += '})();'
 
@@ -87,7 +89,8 @@ module.exports = (grunt) ->
     file_paths.forEach (item, index, array) ->
       file = grunt.file.read(item, 'utf8').replace(/\n|\r/g, '')
       component_name = /components\/(.+?)\/styles.css/.exec( item )[1]
-      full_file += "window.Lovelace.client.styles['#{ component_name }'] = '#{ file }';"
+      root_object = 'window.Lovelace.client.styles'
+      full_file += "#{ root_object }['#{ component_name }'] = '#{ file }';"
 
     grunt.file.write 'dist/client_styles.js', full_file
 
@@ -105,7 +108,8 @@ module.exports = (grunt) ->
         .replace(/\/\/.*$/g, '')
         .replace(/"/g, '\\"')
       component_name = /components\/(.+?)\/scripts.js/.exec( item )[1]
-      full_file += "window.Lovelace.client.scripts['#{ component_name }'] = \"#{ file }\";"
+      root_object = 'window.Lovelace.client.scripts'
+      full_file += "#{ root_object }['#{ component_name }'] = \"#{ file }\";"
 
 
     grunt.file.write 'dist/client_scripts.js', full_file
