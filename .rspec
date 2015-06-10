@@ -1,1 +1,1 @@
---backtrace --pattern './**/*_spec.rb'
+--color --backtrace --pattern './**/*_spec.rb'

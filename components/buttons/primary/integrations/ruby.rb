@@ -3,7 +3,7 @@ module Lovelace
     require 'mustache'
 
     class Primary < Mustache
-      self.template_path = "#{ File.dirname(__FILE__) }/../template.mustache"
+      self.template_file = "#{ File.dirname(__FILE__) }/../template.mustache"
 
       def initialize(parameters = {})
         @parameters = parameters

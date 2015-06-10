@@ -1,7 +1,5 @@
-require 'capybara/rspec/matchers'
-require_relative 'ruby'
-
-puts Lovelace.class
+require 'capybara'
+require_relative './ruby'
 
 describe 'Lovelace::Buttons::Primary' do
 
