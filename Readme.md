@@ -8,8 +8,6 @@ An advanced, language- and framework-agnostic architecture for UI components.
 
 Momentarily, heavily a work in progress.
 
-
-## Codeclimate, npm and bower badges go here
 [![Code Climate](https://codeclimate.com/github/jacopotarantino/Lovelace/badges/gpa.svg)](https://codeclimate.com/github/jacopotarantino/Lovelace)
 [![Test Coverage](https://codeclimate.com/github/jacopotarantino/Lovelace/badges/coverage.svg)](https://codeclimate.com/github/jacopotarantino/Lovelace/coverage)
 [ ![Codeship Status for jacopotarantino/Lovelace](https://codeship.com/projects/121b1550-da48-0132-0d4e-5acc9fe35d9d/status?branch=master)](https://codeship.com/projects/79270)
@@ -20,6 +18,7 @@ Momentarily, heavily a work in progress.
 ## Table of Contents
 
 * [Description](#description)
+  * [Intents and Purposes](#intents-and-purposes)
   * [Components](#components)
 * [API Definition](#api)
   * [Abstractions](#abstractions)
@@ -38,7 +37,21 @@ Momentarily, heavily a work in progress.
 Lovelace provides a framework for developing UI components in a way that is both sane and highly scalable. It focuses on developer happiness by providing a neat organizational scructure with all files relevant to a single component in a single folder. Components are written in terse, compiled languages so that we can code as little as possible. Lovelace is also designed to be consumed by large infrastructures that may involve many different languages and frameworks and complicated deployment processes.
 
 
-## Components
+### Intents and Purposes
+
+Lovelace arose out of my extensive work on style guides and a need to share markup between Rails- and Backbone-based applications. The base concern is to be able to share component styles, scripts and markup across languages and frameworks but developer happiness and the ability to mindlessly create maintainable code plays a huge part in the structure of this project.
+
+* Sass over CSS
+* CoffeeScript over JS
+* one component per folder
+* no external dependencies
+* overdocument the crap out of your code
+* autogenerate a living styleguide
+* strict code quality standards
+* test-driven development
+
+
+### Components
 
 All components live in the `/components` folder. They each consist of a category folder and then a named folder representing the name of the component in the pattern `components/:category/:component_name`. Each component folder contains all of the code relevant to that particular component with the exception of code that's shared across components which lives in `components/base`. The shared code is things like base classes for Ruby and mixins for Sass. The list of files inside the folder should be as follows:
 
