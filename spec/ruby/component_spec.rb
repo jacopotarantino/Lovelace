@@ -1,11 +1,11 @@
 require 'capybara'
-require_relative '../../ruby'
+require_relative '../../lovelace'
 
 describe 'Lovelace.component' do
 
   context 'with no arguments' do
     it 'should raise an exception' do
-      expect{ Lovelace.component }.to raise_error
+      expect{ Lovelace.component }.to raise_error ArgumentError
     end
   end
 
