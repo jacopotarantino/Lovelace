@@ -57,6 +57,11 @@ module.exports = (grunt) ->
       'concat:all_client_files'
     ]
 
+
+  ##
+  # The tasks below are all for building client files and should not be
+  # consumed directly. Consider them as private methods.
+  #
   grunt.registerTask 'build_client_templates', 'create js for templates', ->
     full_file = [
       ';(function() {',
