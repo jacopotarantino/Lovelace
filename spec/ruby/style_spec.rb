@@ -17,7 +17,6 @@ describe 'Lovelace.style' do
     }
 
     it 'should return a style block with the markup' do
-      puts page.to_s
       expect( page ).to have_text 'button'
     end
   end
