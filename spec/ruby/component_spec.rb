@@ -1,5 +1,5 @@
 require 'capybara'
-require_relative '../../lovelace'
+require_relative '../../lib/lovelace'
 
 describe 'Lovelace.component' do
 
