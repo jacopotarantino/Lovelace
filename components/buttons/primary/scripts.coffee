@@ -1,5 +1,9 @@
 'use strict'
 
+window.alert 'Instantiating a new primary button!'
+
+
+
 window.PrimaryButtonAnalytics = {}
 
 # adds analytics to all tagged buttons on the page
@@ -7,6 +11,7 @@ window.PrimaryButtonAnalytics.track_button_clicks = ->
   document
     .getElementsByTagName('body')[0]
     .addEventListener 'click', (event) ->
+      window.alert 'ack! my face!'
       return unless event.target.className.indexOf('js-track-button') > -1
 
       button = event.target

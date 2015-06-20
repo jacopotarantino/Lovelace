@@ -3,7 +3,8 @@ require 'coffee-script'
 module Lovelace
 
   def self.script(component_name, args = {})
-    file = File.read "./components/#{component_name}/scripts.coffee"
+    components_directory = "#{ File.dirname(__FILE__) }/../../components/"
+    file = File.read "#{ components_directory }#{component_name}/scripts.coffee"
     rendered = CoffeeScript.compile file
     markup = "<script>#{ rendered }</script>"
 

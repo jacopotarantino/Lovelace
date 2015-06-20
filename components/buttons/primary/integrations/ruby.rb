@@ -1,6 +1,7 @@
+require 'mustache'
+
 module Lovelace
   module Buttons
-    require 'mustache'
 
     class Primary < Mustache
       self.template_file = "#{ File.dirname(__FILE__) }/../template.mustache"

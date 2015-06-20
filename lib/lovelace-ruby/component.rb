@@ -1,7 +1,8 @@
 module Lovelace
 
   def self.component(component_name, args = {})
-    require "./components/#{component_name}/integrations/ruby"
+    components_directory = "#{ File.dirname(__FILE__) }/../../components/"
+    require "#{ components_directory }#{component_name}/integrations/ruby"
 
     # We don't want people needing to do their own escaping in templates
     if defined? Rails
