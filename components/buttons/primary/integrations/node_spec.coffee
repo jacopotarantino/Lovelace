@@ -4,7 +4,7 @@ Lovelace = {}
 
 describe 'Buttons::Primary', ->
   beforeEach ->
-    Lovelace = require '../../../../node'
+    Lovelace = require '../../../../index'
 
   describe 'with no options passed in', ->
     it 'should render the template with all the defaults', ->

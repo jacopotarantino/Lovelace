@@ -6,12 +6,8 @@ describe 'sanity check', ->
   it 'should always pass', ->
     expect( true ).toBeTruthy()
 
-  xit 'exposes Lovelace as an AMD module', ->
-    define ['Lovelace'], (Lovelace) ->
-      expect( Lovelace ).toBeDefined()
-
   it 'exposes Lovelace as a node module', ->
-    Lovelace = require '../../node'
+    Lovelace = require '../../index'
     expect( typeof Lovelace ).toBe 'object'
     expect( typeof Lovelace.component ).toBe 'function'
 

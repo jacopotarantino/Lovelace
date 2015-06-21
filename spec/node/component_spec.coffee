@@ -1,6 +1,6 @@
 'use strict'
 
-Lovelace = require '../../node'
+Lovelace = require '../../index'
 
 describe 'Lovelace.component', ->
   describe 'when working in node', ->

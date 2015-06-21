@@ -2,10 +2,10 @@
 
 Lovelace = {}
 
-describe 'Buttons::Primary', ->
+describe 'Buttons::Secondary', ->
 
   beforeEach ->
-    Lovelace = require '../../../../node'
+    Lovelace = require '../../../../index'
 
   describe 'with no options passed in', ->
     it 'should render the template with all the defaults', ->
