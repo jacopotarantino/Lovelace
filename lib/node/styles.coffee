@@ -1,20 +1,13 @@
 'use strict'
 
 fs = require('fs')
-
-module.exports = (component) ->
-
-
-
-
-
-
-'use strict'
-
-fs = require('fs')
 Sass = require('node-sass')
 
-# finds all files in a directory
+# @function get_files
+# @param dir [String] path to folder to search
+# @param files_ [Array] existing list of found files
+# @return [Array] all the files found in that directory
+#
 get_files = (dir, files_) ->
   files_ ?= []
   files = fs.readdirSync(dir)
@@ -29,11 +22,17 @@ get_files = (dir, files_) ->
 
   return files_
 
+# @function generate_compiled_file
+# @param path [String] path to the sass file to read
+# @return [String] html script block containing the referenced file
+#
 generate_compiled_file = (path) ->
   compiled_file = Sass.renderSync( file: path )
   return compiled_file.css
 
-
+# @method Lovelace.styles
+# @return [String] a style block with markup for all available components
+#
 module.exports = ->
   sass_files = get_files('./components').filter (item) ->
     return item.indexOf('styles.sass') isnt -1

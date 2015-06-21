@@ -3,6 +3,10 @@
 fs = require('fs')
 CoffeeScript = require('coffee-script')
 
+# @method Lovelace.script
+# @param component [String] path to desired component
+# @return [String] a script block for the named component
+#
 module.exports = (component) ->
   coffeescript_file = fs.readFileSync(
     "components/#{component}/scripts.coffee"
