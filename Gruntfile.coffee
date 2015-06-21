@@ -23,7 +23,6 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'test', 'runs the test suite', ->
     grunt.task.run [
-      'run_ruby_tests'
       'build_client_files'
       'concurrent:test'
       'codeclimate'
