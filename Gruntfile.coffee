@@ -13,7 +13,6 @@ module.exports = (grunt) ->
         'validate-shrinkwrap': 'grunt-nsp-shrinkwrap'
         'cssmetrics': 'grunt-css-metrics'
         'codeclimate': 'grunt-codeclimate-reporter'
-        'warn_friday': 'grunt-warn-friday'
         'jasmine_node': 'grunt-jasmine-node'
 
   grunt.registerTask 'documentation', 'builds the docs', ->
