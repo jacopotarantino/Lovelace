@@ -202,30 +202,41 @@ No warranties are given. The license may not give you all of the permissions nec
 
 ### Rails
 
-In your `Gemfile`:
+Add Lovelace to your Gemfile:
 
 ```ruby
-gem 'lovelace', '~> 1.0'
+# Gemfile
+gem 'lovelace'
 ```
 
-@todo In file that allows you to add view helpers:
+Require lovelace in your application controller:
 
 ```ruby
-@todo
+# app/controllers/application_controller.rb
+require 'lovelace'
+
+class ApplicationController < ActionController::Base
+  # things...
+end
 ```
 
-In `app/views/my_app/homepage.erb`:
+Then start using Lovelace in your views:
 
-```html
-<p>Click the button below to sign up!
-<br>
-<%= Lovelace.component('buttons/primary', {
-  custom_classes: 'js-signup-button',
-  text: 'Create my account!'
-}) %>
-</p>
+```erb
+<!-- app/views/welcome/index.html.erb -->
+<%= Lovelace.complete('buttons/primary', { text: "I'm a primary button!" }) %>
 ```
 
+All the code snippets above are stright out of the included example Rails application. If you think the proof is in the object-oriented pudding, run the example Rails application:
+
+```bash
+cd example_apps/rails
+gem install bundler
+bundle
+rails s
+```
+
+And go to `http://localhost:3000` to see a few example components being inserted onto the page.
 
 ### Angular
 
