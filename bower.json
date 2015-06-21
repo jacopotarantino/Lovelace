@@ -5,7 +5,7 @@
     "Jack <jack@ofspades.com>"
   ],
   "description": "An advanced, language- and framework-agnostic architecture for UI components.",
-  "main": "index.js",
+  "main": "dist/client.js",
   "moduleType": [
     "amd",
     "globals",
