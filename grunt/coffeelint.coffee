@@ -5,8 +5,10 @@ module.exports =
     'no_trailing_whitespace':
       'level': 'error'
   all: [
-    '**/*.coffee'
-    '!node_modules/**/*.coffee'
-    '!coverage/**/*.coffee'
+    'components/**/*.coffee'
+    'grunt/**/*.coffee'
+    'lib/**/*.coffee'
+    'spec/**/*.coffee'
+    'Gruntfile.coffee'
   ]
 
