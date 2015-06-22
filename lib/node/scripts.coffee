@@ -2,6 +2,7 @@
 
 fs = require('fs')
 CoffeeScript = require('coffee-script')
+directory = "#{ __dirname }/../../components"
 
 # @function get_files
 # @param dir [String] path to folder to search
@@ -39,7 +40,7 @@ generate_compiled_file = (path) ->
 # @return [String] the complete scripts for all components
 #
 module.exports = ->
-  script_files = get_files('./components').filter (item) ->
+  script_files = get_files( directory ).filter (item) ->
     return item.indexOf('scripts.coffee') isnt -1
 
   script_files

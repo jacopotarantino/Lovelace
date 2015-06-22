@@ -2,6 +2,7 @@
 
 fs = require('fs')
 CoffeeScript = require('coffee-script')
+directory = "#{ __dirname }/../../components/"
 
 # @method Lovelace.script
 # @param component [String] path to desired component
@@ -9,7 +10,7 @@ CoffeeScript = require('coffee-script')
 #
 module.exports = (component) ->
   coffeescript_file = fs.readFileSync(
-    "components/#{component}/scripts.coffee"
+    "#{ directory }#{ component }/scripts.coffee"
     , 'utf8'
   )
   compiled_file = CoffeeScript.compile coffeescript_file

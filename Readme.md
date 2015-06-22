@@ -238,7 +238,41 @@ rails s
 
 And go to `http://localhost:3000` to see a few example components being inserted onto the page.
 
-### Angular
+### Node
+
+Add Lovelace to your package.json:
+
+```json
+  "dependencies": {
+    "lovelace": "~1.0.0"
+  }
+```
+
+Require Lovelace in your `app.locals` object:
+
+```javascript
+// app.js
+var Lovelace = require('../../index');
+app.locals.Lovelace = Lovelace;
+```
+
+And start using Lovelace in your views:
+
+```jade
+block content
+  //- other things...
+  p!= Lovelace.complete('buttons/primary', { text: "I'm a primary button!" })
+```
+
+All the code snippets above are stright out of the included example Node application. If you think the proof is in the object-oriented pudding, run the example Node application:
+
+```bash
+cd example_apps/node
+npm install && bower install
+gulp
+```
+
+And go to `http://localhost:3000` to see a few example components being inserted onto the page.
 
 @todo
 
