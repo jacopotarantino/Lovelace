@@ -1,7 +1,3 @@
-# Warning
-
-This project is still under active development. Please don't use it in production code as it will probably break everything. That being said, if you'd like more information or want to collaborate on it, please reach out. I'm really excited about this one.
-
 # Lovelace
 
 An advanced, language- and framework-agnostic architecture for UI components.
