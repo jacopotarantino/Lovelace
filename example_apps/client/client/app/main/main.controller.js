@@ -1,11 +1,9 @@
 'use strict';
 
 angular.module('clientApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function ($scope, $sce) {
+    $scope.primary_button = $sce.trustAsHtml( Lovelace.complete('buttons/primary', {tag: 'button', text: "i'm a primary button"}) );
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+    $scope.secondary_button = $sce.trustAsHtml( Lovelace.complete('buttons/secondary', {tag: 'button', text: "i'm a secondary button"}) );
 
   });

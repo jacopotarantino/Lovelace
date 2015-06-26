@@ -15,11 +15,6 @@
       <!-- bower:css -->
       <!-- endbower -->
     <!-- endbuild -->
-    <!-- build:css({.tmp,client}) app/app.css -->
-    <link rel="stylesheet" href="app/app.css">
-      <!-- injector:css -->
-      <!-- endinjector -->
-    <!-- endbuild -->
   </head>
   <body ng-app="clientApp">
     <!--[if lt IE 7]>
@@ -40,11 +35,6 @@
        ga('send', 'pageview');
     </script>
 
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
-
     <!-- build:js(client) app/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -57,11 +47,13 @@
       <!-- endbower -->
     <!-- endbuild -->
 
+        <script src="components/client.js"></script>
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="components/client.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
