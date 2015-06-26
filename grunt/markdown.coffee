@@ -11,13 +11,13 @@ module.exports =
       }
     ]
     options:
+      template: 'lib/styleguide_template.jst'
       markdownOptions:
         gfm: true
         highlight: 'auto'
     #     codeLines:
     #       before: '<span>'
     #       after: '</span>'
-    #   template: 'myTemplate.jst'
     #   preCompile: function(src, context) {}
     #   postCompile: function(src, context) {}
     #   templateContext: {}

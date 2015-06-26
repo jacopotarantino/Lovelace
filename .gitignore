@@ -5,3 +5,6 @@ bower_components
 coverage
 dist
 example_apps/node/node_modules
+*.scssc
+*.map
+*.tmp*

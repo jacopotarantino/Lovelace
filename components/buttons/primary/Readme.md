@@ -3,7 +3,7 @@
 This button can be summoned using the following call(all default values are provided):
 
 ```coffeescript
-Lovelace.component('buttons/primary', {
+Lovelace.complete('buttons/primary', {
   tag: 'a', # `a` or `button` are preferred
   disabled: false, # will render the button in a disabled state
   block: false, # adds the `.btn-block` class and associated styles to the button
@@ -12,6 +12,12 @@ Lovelace.component('buttons/primary', {
   text: ''
 })
 ```
+
+<div id="test-me"></div>
+<script>
+  var button = Lovelace.complete('buttons/primary', { tag: 'button', text: 'click me!' });
+  document.querySelector('#test-me').innerHTML = button;
+</script>
 
 ## Optional Classes
 
