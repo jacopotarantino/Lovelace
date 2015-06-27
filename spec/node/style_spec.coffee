@@ -1,6 +1,8 @@
 'use strict'
 
-Lovelace = require '../../index'
+Lovelace = require('../../index').init
+  root_component_path: "#{process.env.PWD}/components"
+
 rendered = Lovelace.style('buttons/primary')
 
 describe 'Lovelace.style', ->

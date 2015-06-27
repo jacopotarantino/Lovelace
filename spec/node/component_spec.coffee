@@ -1,6 +1,7 @@
 'use strict'
 
-Lovelace = require '../../index'
+Lovelace = require('../../index').init
+  root_component_path: "#{process.env.PWD}/components"
 
 describe 'Lovelace.component', ->
   describe 'when working in node', ->

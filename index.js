@@ -11,6 +11,8 @@
    * @description exposes namepace with all available API methods as properties
    */
   module.exports = {
+    // initializes the module with options like component location
+    init: require('./lib/node/init'),
     // Returns the markup for a single component
     component: require('./lib/node/component'),
     // Returns a style block for a single component

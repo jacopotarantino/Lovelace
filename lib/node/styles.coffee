@@ -2,7 +2,6 @@
 
 fs = require('fs')
 Sass = require('node-sass')
-directory = "#{ __dirname }/../../components/"
 
 # @function get_files
 # @param dir [String] path to folder to search
@@ -35,6 +34,7 @@ generate_compiled_file = (path) ->
 # @return [String] a style block with markup for all available components
 #
 module.exports = ->
+  directory = @root_component_path
   sass_files = get_files( directory ).filter (item) ->
     return item.indexOf( 'styles.sass' ) isnt -1
 
