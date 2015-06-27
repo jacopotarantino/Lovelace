@@ -129,7 +129,9 @@ npm install --save lovelace
 Then in your application:
 
 ```javascript
-var Lovelace = require('lovelace');
+var Lovelace = require('lovelace').init({
+  root_component_path: process.env.PWD + '/lovelace_components'
+});
 
 var my_button = Lovelace.component('buttons/primary', { text: 'Click me!' });
 ```
