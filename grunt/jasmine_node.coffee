@@ -2,4 +2,5 @@
 
 module.exports =
   projectRoot: '.'
-  extensions: 'coffee'
+  options:
+    extensions: 'coffee'

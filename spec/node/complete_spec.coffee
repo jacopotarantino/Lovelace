@@ -1,6 +1,8 @@
 'use strict'
 
-Lovelace = require '../../index'
+Lovelace = require('../../index').init
+  root_component_path: "#{process.env.PWD}/components"
+
 fake_text = 'Clicking things!'
 rendered = Lovelace.complete('buttons/primary', { text: fake_text })
 

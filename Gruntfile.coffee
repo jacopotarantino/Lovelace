@@ -72,7 +72,9 @@ module.exports = (grunt) ->
     file_paths = grunt.file.expand [ 'components/**/template.mustache' ]
 
     file_paths.forEach (item, index, array) ->
-      file = grunt.file.read(item, 'utf8').replace(/\n|\r/g, '')
+      file = grunt.file.read(item, 'utf8')
+        .replace(/\n|\r/g, '')
+        .replace(/'/g, "\\'")
       component_name = /components\/(.+?)\/template.mustache/.exec( item )[1]
       root_object = 'window.Lovelace.client.templates'
       full_file += "#{ root_object }['#{ component_name }'] = '#{ file }';"
