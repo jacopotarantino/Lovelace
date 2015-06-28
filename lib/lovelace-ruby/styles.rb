@@ -2,7 +2,7 @@ module Lovelace
   require 'sass'
 
   def self.styles
-    files = Dir['./components/**/styles.sass']
+    files = Dir["#{ @root_component_path }**/styles.sass"]
 
     markup = '<style>'
     files.each do |file|

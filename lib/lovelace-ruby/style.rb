@@ -3,7 +3,7 @@ require 'sass'
 module Lovelace
 
   def self.style(component_name, args = {})
-    components_directory = "#{ File.dirname(__FILE__) }/../../components/"
+    components_directory = @root_component_path
     file = File.read "#{ components_directory }#{component_name}/styles.sass"
     rendered = Sass::Engine.new(file).render
     markup = "<style>#{ rendered }</style>"

@@ -42,6 +42,7 @@ Require lovelace in your application controller:
 ```ruby
 # app/controllers/application_controller.rb
 require 'lovelace'
+Lovelace.init { root_component_path: Dir.pwd + '/lovelace_components' }
 
 class ApplicationController < ActionController::Base
   # things...

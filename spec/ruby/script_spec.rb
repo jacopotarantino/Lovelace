@@ -12,6 +12,7 @@ describe 'Lovelace.script' do
   context 'with the name of a component' do
     let(:component_name) { 'buttons/primary' }
     let(:page) {
+      Lovelace.init({ root_component_path: "#{Dir.pwd}/components" })
       component = Lovelace.script component_name
       Capybara::Node::Simple.new component
     }

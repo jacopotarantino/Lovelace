@@ -4,7 +4,10 @@ require_relative '../../lib/lovelace'
 describe 'Lovelace.styles' do
 
   context 'by default' do
-    let(:styles) { Lovelace.styles }
+    let(:styles) {
+      Lovelace.init({ root_component_path: "#{Dir.pwd}/components" })
+      Lovelace.styles
+    }
     let( :page ) {
       Capybara::Node::Simple.new styles
     }

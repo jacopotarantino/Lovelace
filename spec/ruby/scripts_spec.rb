@@ -5,6 +5,7 @@ describe 'Lovelace.scripts' do
 
   context 'with no arguments' do
     let(:page) {
+      Lovelace.init({ root_component_path: "#{Dir.pwd}/components" })
       component = Lovelace.scripts
       Capybara::Node::Simple.new component
     }

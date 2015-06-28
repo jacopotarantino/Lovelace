@@ -5,7 +5,10 @@ describe 'Lovelace.complete' do
 
   context 'with all arguments' do
     let(:args) { { text: 'Click me!' } }
-    let(:complete) { Lovelace.complete('buttons/primary', args) }
+    let(:complete) {
+      Lovelace.init({ root_component_path: "#{Dir.pwd}/components" })
+      Lovelace.complete('buttons/primary', args)
+    }
     let( :page ) {
       Capybara::Node::Simple.new complete
     }

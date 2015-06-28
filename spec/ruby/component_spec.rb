@@ -14,6 +14,7 @@ describe 'Lovelace.component' do
     let(:text) { 'click me!'}
     let(:args) { { text: text } }
     let(:page) {
+      Lovelace.init({ root_component_path: "#{Dir.pwd}/components" })
       component = Lovelace.component component_name, args
       Capybara::Node::Simple.new component
     }

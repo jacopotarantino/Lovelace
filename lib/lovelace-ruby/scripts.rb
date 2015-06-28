@@ -2,7 +2,7 @@ module Lovelace
   require 'coffee-script'
 
   def self.scripts
-    files = Dir['./components/**/scripts.coffee']
+    files = Dir["#{ @root_component_path }**/scripts.coffee"]
 
     markup = '<script>'
     files.each do |file|
