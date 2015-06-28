@@ -1,6 +1,8 @@
 'use strict'
 
 module.exports =
+  options:
+    outputStyle: 'compressed'
   all_components:
     files: [{
       expand: true

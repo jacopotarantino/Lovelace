@@ -10,6 +10,9 @@ Sass = require('node-sass')
 module.exports = (component) ->
   directory = @root_component_path
   file_path = "#{ directory }#{ component }/styles.sass"
-  compiled_file = Sass.renderSync( file: file_path )
+  compiled_file = Sass.renderSync(
+    file: file_path
+    outputStyle: 'compressed'
+    )
   "<style>#{compiled_file.css}</style>"
 
