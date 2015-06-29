@@ -55,6 +55,9 @@ module.exports = (grunt) ->
       'concat:all_client_files'
     ]
 
+  # grunt.task.registerTask 'foo', 'A sample task',  ->
+  #   grunt.log.writeln grunt.option 'target'
+
 
   ##
   # The tasks below are all for building client files and should not be
@@ -69,7 +72,7 @@ module.exports = (grunt) ->
       'window.Lovelace.client.templates || {};'
     ].join('')
 
-    file_paths = grunt.file.expand [ 'components/**/template.mustache' ]
+    file_paths = grunt.file.expand [ "#{ grunt.option.root_component_path }/**/template.mustache" ]
 
     file_paths.forEach (item, index, array) ->
       file = grunt.file.read(item, 'utf8')
