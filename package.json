@@ -61,5 +61,8 @@
     "node-sass": "^3.0.0",
     "requirejs": "^2.1.17",
     "time-grunt": "^1.2.0"
+  },
+  "dependencies": {
+    "uglify-js": "^2.4.23"
   }
 }

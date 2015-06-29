@@ -2,6 +2,7 @@
 
 fs = require('fs')
 CoffeeScript = require('coffee-script')
+UglifyJS = require('uglify-js')
 
 # @method Lovelace.script
 # @param component [String] path to desired component
@@ -14,6 +15,7 @@ module.exports = (component) ->
     , 'utf8'
   )
   compiled_file = CoffeeScript.compile coffeescript_file
+  compiled_file = UglifyJS.minify(compiled_file, { fromString: true }).code
 
   "<script>#{compiled_file}</script>"
 
