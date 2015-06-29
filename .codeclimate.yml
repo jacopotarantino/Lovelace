@@ -4,9 +4,9 @@ languages:
   PHP: true
   Python: true
 exclude_paths:
-- "example_apps/"
-- "coverage/"
-- "components/"
-- "dist/"
-- "node_modules/"
-- "bower_components/"
+- "example_apps/*"
+- "coverage/*"
+- "components/*"
+- "dist/*"
+- "node_modules/*"
+- "bower_components/*"
