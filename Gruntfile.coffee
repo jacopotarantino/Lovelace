@@ -55,15 +55,22 @@ module.exports = (grunt) ->
       'concat:all_client_files'
     ]
 
-  # grunt.task.registerTask 'foo', 'A sample task',  ->
-  #   grunt.log.writeln grunt.option 'target'
-
-
   ##
   # The tasks below are all for building client files and should not be
   # consumed directly. Consider them as private methods.
   #
+
+  ##
+  # @method build_client_templates
+  # @option root_components_directory {String} path to the components directory
+  # @example grunt build_client_templates --root_component_path=components/
+  #
   grunt.registerTask 'build_client_templates', 'create js for templates', ->
+    components_directory = grunt.option('root_component_path')
+    unless /\/$/.test(components_directory)
+      components_directory += '/'
+    template_file_glob = "#{ components_directory }**/template.mustache"
+
     full_file = [
       ';(function() {',
       'window.Lovelace = window.Lovelace || {};',
@@ -71,8 +78,7 @@ module.exports = (grunt) ->
       'window.Lovelace.client.templates = ',
       'window.Lovelace.client.templates || {};'
     ].join('')
-
-    file_paths = grunt.file.expand [ "#{ grunt.option.root_component_path }/**/template.mustache" ]
+    file_paths = grunt.file.expand [ template_file_glob ]
 
     file_paths.forEach (item, index, array) ->
       file = grunt.file.read(item, 'utf8')
