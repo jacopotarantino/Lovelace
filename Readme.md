@@ -2,6 +2,10 @@
 
 A language- and framework-agnostic architecture for UI components coupled with a styleguide auto-generator so you never have poorly-architected frontend code again.
 
+Lovelace provides a highly structured format in which to write user-facing HTML, CSS, JavaScript and tests. This format is then automagically translated into a complete living styleguide, code documentation(as automatic as is possible) and an API for every modern language to access all of these components with the **exact** same syntax *(in participating, roughly C-based languages).
+
+Lovelace works in Node, Ruby and even provides a couple commands to build your components into a client-side javascript file that exposes the exact same methods that the server-side languages use.
+
 [![Code Climate](https://codeclimate.com/github/jacopotarantino/Lovelace/badges/gpa.svg)](https://codeclimate.com/github/jacopotarantino/Lovelace)
 [![Test Coverage](https://codeclimate.com/github/jacopotarantino/Lovelace/badges/coverage.svg)](https://codeclimate.com/github/jacopotarantino/Lovelace/coverage)
 [ ![Codeship Status for jacopotarantino/Lovelace](https://codeship.com/projects/121b1550-da48-0132-0d4e-5acc9fe35d9d/status?branch=master)](https://codeship.com/projects/79270)
