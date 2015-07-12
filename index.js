@@ -1,9 +1,9 @@
-(function() {
-  'use strict';
+(function () {
+  'use strict'
 
   // All sub-components are written in coffee-script.
-  var CoffeeScript = require('coffee-script');
-  CoffeeScript.register();
+  var CoffeeScript = require('coffee-script')
+  CoffeeScript.register()
 
   /**
    * @namespace Lovelace
@@ -25,5 +25,5 @@
     styles: require('./lib/node/styles'),
     // Returns all available scripts concatenated
     scripts: require('./lib/node/scripts')
-  };
-})();
+  }
+})()

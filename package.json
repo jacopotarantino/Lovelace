@@ -45,6 +45,7 @@
     "grunt-markdown": "^0.7.0",
     "grunt-nsp-shrinkwrap": "0.0.3",
     "grunt-sass": "^1.0.0",
+    "grunt-standard": "^1.0.2",
     "grunt-warn-friday": "^0.1.0",
     "jasmine-core": "^2.3.2",
     "jasmine-node-karma": "^1.6.1",

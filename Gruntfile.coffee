@@ -25,6 +25,7 @@ module.exports = (grunt) ->
       'build_client_files'
       'concurrent:test'
       'codeclimate'
+      'standard'
       'cssmetrics'
     ]
 
