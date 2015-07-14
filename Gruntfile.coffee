@@ -48,7 +48,6 @@ module.exports = (grunt) ->
     grunt.task.run [
       'clean'
       'sass:all_components'
-      'coffee:compile_scripts_for_client'
       'build_client_templates'
       'build_client_styles'
       'build_client_scripts'
@@ -131,6 +130,5 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'build_client_api', 'create api for client scripts', ->
     grunt.task.run [
-      'coffee:compile_api_for_client'
       'concat:client_api'
     ]

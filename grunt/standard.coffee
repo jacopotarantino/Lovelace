@@ -2,7 +2,7 @@
 
 module.exports =
   options:
-    format: false
+    format: true
   app:
     src: [
       'index.js'
