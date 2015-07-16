@@ -1,12 +1,10 @@
 module Lovelace
-  require 'coffee-script'
-
   def self.scripts
-    files = Dir["#{ @root_component_path }**/scripts.coffee"]
+    files = Dir["#{ @root_component_path }**/scripts.js"]
 
     markup = '<script>'
     files.each do |file|
-      markup += CoffeeScript.compile File.read(file)
+      markup += File.read(file)
     end
     markup += '</script>'
 

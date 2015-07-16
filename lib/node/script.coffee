@@ -1,7 +1,6 @@
 'use strict'
 
 fs = require('fs')
-CoffeeScript = require('coffee-script')
 UglifyJS = require('uglify-js')
 
 # @method Lovelace.script
@@ -10,12 +9,11 @@ UglifyJS = require('uglify-js')
 #
 module.exports = (component) ->
   directory = @root_component_path
-  coffeescript_file = fs.readFileSync(
-    "#{ directory }#{ component }/scripts.coffee"
+  file = fs.readFileSync(
+    "#{ directory }#{ component }/scripts.js"
     , 'utf8'
   )
-  compiled_file = CoffeeScript.compile coffeescript_file
-  compiled_file = UglifyJS.minify(compiled_file, { fromString: true }).code
+  compiled_file = UglifyJS.minify(file, { fromString: true }).code
 
   "<script>#{compiled_file}</script>"
 

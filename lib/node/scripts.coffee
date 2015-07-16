@@ -1,7 +1,6 @@
 'use strict'
 
 fs = require('fs')
-CoffeeScript = require('coffee-script')
 
 # @function get_files
 # @param dir [String] path to folder to search
@@ -30,8 +29,7 @@ get_files = (dir, files_) ->
 # @return [String] html script block containing the referenced file
 #
 generate_compiled_file = (path) ->
-  coffeescript_file = fs.readFileSync(path, 'utf8')
-  compiled_file = CoffeeScript.compile coffeescript_file
+  file = fs.readFileSync(path, 'utf8')
 
   return "<script>#{compiled_file}</script>"
 
@@ -41,7 +39,7 @@ generate_compiled_file = (path) ->
 module.exports = ->
   directory = @root_component_path
   script_files = get_files( directory ).filter (item) ->
-    return item.indexOf('scripts.coffee') isnt -1
+    return item.indexOf('scripts.js') isnt -1
 
   script_files
     .map (script_file) ->

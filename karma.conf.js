@@ -12,8 +12,8 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './components/**/scripts.coffee',
-      './components/**/test.coffee'
+      './components/**/scripts.js',
+      './components/**/test.js'
     ],
 
     // list of files to exclude
@@ -22,7 +22,7 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.coffee': ['coffee', 'coverage']
+      '**/*.js': ['coverage']
     },
 
     // test results reporter to use
@@ -47,18 +47,6 @@ module.exports = function (config) {
           subdir: 'report-lcov'
         }
       ]
-    },
-
-    coffeePreprocessor: {
-      // options passed to the coffee compiler
-      options: {
-        bare: true,
-        sourceMap: true
-      },
-      // transforming the filenames
-      transformPath: function (path) {
-        return path.replace(/\.coffee$/, '.js')
-      }
     },
 
     // web server port

@@ -5,8 +5,6 @@ source 'https://rubygems.org'
 gem 'mustache'
 # for styles
 gem 'sass'
-# for scripts
-gem 'coffee-script'
 
 # testing
 gem 'rspec'
