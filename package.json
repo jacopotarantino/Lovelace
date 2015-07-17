@@ -64,7 +64,7 @@
     "time-grunt": "^1.2.0",
     "uglify-js": "^2.4.23"
   },
-  "dependencies": {
-    "grunt-standard": "^1.0.2"
+  "bin": {
+    "lovelace-build-client": "bin/lovelace-build-client"
   }
 }
