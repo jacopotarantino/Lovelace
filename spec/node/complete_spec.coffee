@@ -12,7 +12,7 @@ describe 'Lovelace.complete', ->
       expect( rendered.indexOf '<style>' ).toBe(0)
 
     it 'should return a complete component with scripts', ->
-      expect( rendered.indexOf('<script>(function(){') > 0 ).toBeTruthy()
+      expect( rendered.indexOf('<script>!function') > 0 ).toBeTruthy()
 
     it 'should return a complete component with markup', ->
       expect( rendered.indexOf('<button') > 0 ).toBeTruthy()
@@ -20,7 +20,7 @@ describe 'Lovelace.complete', ->
 
     it 'should return the markup in the correct order', ->
       style_position = rendered.indexOf '<style>'
-      script_position = rendered.indexOf('<script>(function(){')
+      script_position = rendered.indexOf('<script>!function')
       markup_position = rendered.indexOf('<button')
       expect(
         script_position > markup_position and

@@ -31,7 +31,7 @@ get_files = (dir, files_) ->
 generate_compiled_file = (path) ->
   file = fs.readFileSync(path, 'utf8')
 
-  return "<script>#{compiled_file}</script>"
+  return "<script>#{file}</script>"
 
 # @method Lovelace.scripts
 # @return [String] the complete scripts for all components

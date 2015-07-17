@@ -63,5 +63,8 @@
     "requirejs": "^2.1.17",
     "time-grunt": "^1.2.0",
     "uglify-js": "^2.4.23"
+  },
+  "dependencies": {
+    "grunt-standard": "^1.0.2"
   }
 }

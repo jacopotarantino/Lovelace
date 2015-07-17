@@ -7,6 +7,6 @@ module.exports =
     'coffeelint'
     'jasmine_node'
     'karma'
-    'validate-shrinkwrap'
+    # 'validate-shrinkwrap'
     # @todo test ruby integrations
   ]
