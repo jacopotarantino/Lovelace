@@ -27,7 +27,7 @@
     "url": "https://github.com/jacopotarantino/Lovelace/issues"
   },
   "homepage": "https://github.com/jacopotarantino/Lovelace",
-  "devDependencies": {
+  "dependencies": {
     "coffee-script": "^1.9.2",
     "coffeelint": "^1.9.6",
     "grunt": "^0.4.5",
@@ -62,7 +62,8 @@
     "node-sass": "^3.0.0",
     "requirejs": "^2.1.17",
     "time-grunt": "^1.2.0",
-    "uglify-js": "^2.4.23"
+    "uglify-js": "^2.4.23",
+    "yargs": "^3.15.0"
   },
   "bin": {
     "lovelace-build-client": "bin/lovelace-build-client"
