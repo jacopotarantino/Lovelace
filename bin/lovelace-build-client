@@ -1,18 +1,40 @@
 #!/usr/bin/env node
 
-var exec = require('child_process').exec,
+var exec = require('child_process').execSync,
     argv = require('yargs').argv,
-    component_path = argv.root_component_path
+    fs = require('fs'),
+    component_path,
+    output_file_path,
+    exec_string
 
-if (!component_path) {
+try {
+  component_path = fs.realpathSync(argv.input)
+}
+catch(err) {
   console.error('Please provide a path to your components directory.')
-  console.error('Example: "--root_component_path=./components"')
+  console.error('Example: "--input=./components"')
+  process.exit(1)
 }
 
-exec('bower install && grunt build_client_files --root_component_path=' + component_path, {
+try {
+  output_file_path = fs.realpathSync(argv.output)
+}
+catch(err) {
+  console.error('Please provide a path to build the client file to.')
+  console.error('Example: "--output=./assets/scripts/lovelace.js"')
+  process.exit(2)
+}
+
+exec_string = [
+  'bower install && ',
+  'grunt build_client_files ',
+  '--root_component_path=' + component_path,
+  '--output_file_path=' + output_file_path,
+  ' && mv dist/client.js ' + output_file_path
+].join('')
+
+exec(exec_string, {
   cwd: __dirname + '/../'
-}, function(error, stdout, stderr) {
-  if (!error) {
-    console.log('Built client files!')
-  }
 })
+
+console.log('Built client files!')
