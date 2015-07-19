@@ -30,6 +30,7 @@ exec_string = [
   'grunt build_client_files ',
   '--root_component_path=' + component_path,
   '--output_file_path=' + output_file_path,
+  ' && mkdir -p `dirname #{output_file_path}`',
   ' && mv dist/client.js ' + output_file_path
 ].join('')
 
