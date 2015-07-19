@@ -7,5 +7,6 @@ module.exports =
     src: [
       'index.js'
       'karma.conf.js'
+      'bin/lovelace-build-client'
       'components/**/*.js'
     ]

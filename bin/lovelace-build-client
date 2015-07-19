@@ -1,27 +1,28 @@
 #!/usr/bin/env node
 
 var exec = require('child_process').execSync,
-    argv = require('yargs').argv,
-    fs = require('fs'),
-    component_path,
-    output_file_path,
-    exec_string
+  argv = require('yargs').argv,
+  fs = require('fs'),
+  component_path,
+  output_file_path,
+  exec_string
 
 try {
-  component_path = fs.realpathSync(argv.input)
-}
-catch(err) {
+  component_path = fs.realpathSync(argv.if)
+} catch(err) {
   console.error('Please provide a path to your components directory.')
-  console.error('Example: "--input=./components"')
+  console.error('Example: "--if=./components"')
   process.exit(1)
 }
 
 try {
-  output_file_path = fs.realpathSync(argv.output)
-}
-catch(err) {
+  output_file_path = argv.of
+  if (output_file_path === undefined) {
+    throw new Error()
+  }
+} catch(err) {
   console.error('Please provide a path to build the client file to.')
-  console.error('Example: "--output=./assets/scripts/lovelace.js"')
+  console.error('Example: "--of=./assets/scripts/lovelace.js"')
   process.exit(2)
 }
 
@@ -30,7 +31,7 @@ exec_string = [
   'grunt build_client_files ',
   '--root_component_path=' + component_path,
   '--output_file_path=' + output_file_path,
-  ' && mkdir -p `dirname #{output_file_path}`',
+  ' && mkdir -p `dirname ' + output_file_path + '`',
   ' && mv dist/client.js ' + output_file_path
 ].join('')
 

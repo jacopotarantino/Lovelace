@@ -8,5 +8,4 @@ module.exports =
     'jasmine_node'
     'karma'
     # 'validate-shrinkwrap'
-    # @todo test ruby integrations
   ]
