@@ -15,11 +15,6 @@ module.exports = (grunt) ->
         'codeclimate': 'grunt-codeclimate-reporter'
         'jasmine_node': 'grunt-jasmine-node'
 
-  grunt.registerTask 'documentation', 'builds the docs', ->
-    grunt.task.run [
-      'markdown'
-    ]
-
   grunt.registerTask 'test', 'runs the test suite', ->
     grunt.task.run [
       'build_client_files'
@@ -47,7 +42,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'build_client_files', 'creates final js for client', ->
     grunt.task.run [
       'clean'
-      'documentation'
       'sass:all_components'
       # 'coffee:compile_scripts_for_client'
       'build_client_templates'
